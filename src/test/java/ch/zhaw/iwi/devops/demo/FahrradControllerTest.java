@@ -53,6 +53,14 @@ public class FahrradControllerTest {
         assertEquals(0, results.size());
 }
 
+@Test
+    public void testSearchFahrradByNamePartialMatch() {
+        List<Fahrrad> results = controller.searchFahrradByName("Emonda", false);
+        assertEquals(1, results.size());
+        assertEquals("Trek Emonda", results.get(0).getName());
+}
+
+
 
 
 
