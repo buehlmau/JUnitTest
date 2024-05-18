@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
 public class FahrradControllerTest {
 
     private FahrradController controller;
@@ -20,4 +22,11 @@ public class FahrradControllerTest {
         assertEquals(1, fahrrad.getId());
         assertEquals("Trek Emonda", fahrrad.getName());
     }
+
+    @Test
+    public void testSearchFahrradByNameCaseInsensitive() {
+    List<Fahrrad> results = controller.searchFahrradByName("tReK", false);
+    assertEquals(1, results.size());
+}
+
 }
