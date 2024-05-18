@@ -47,6 +47,13 @@ public class FahrradControllerTest {
         assertEquals(1, results.size());
 }
 
+    @Test
+    public void testSearchFahrradByHerstellerNoMatch() {
+        List<Fahrrad> results = controller.searchFahrradByHersteller("NonExistentBrand");
+        assertEquals(0, results.size());
+}
+
+
 
 
 }
