@@ -41,5 +41,12 @@ public class FahrradControllerTest {
         assertEquals(0, results.size());
 }
 
+    @Test
+    public void testSearchFahrradByHersteller() {
+        List<Fahrrad> results = controller.searchFahrradByHersteller("Trek");
+        assertEquals(1, results.size());
+}
+
+
 
 }

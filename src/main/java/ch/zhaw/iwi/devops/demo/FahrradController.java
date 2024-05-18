@@ -23,16 +23,23 @@ public class FahrradController {
     }
 
     public List<Fahrrad> searchFahrradByName(String name, boolean caseSensitive) {
-    if (caseSensitive) {
-        return fahrradListe.stream()
+        if (caseSensitive) {
+            return fahrradListe.stream()
                 .filter(f -> f.getName().contains(name))
                 .collect(Collectors.toList());
     } else {
         String lowerCaseName = name.toLowerCase();
-        return fahrradListe.stream()
+            return fahrradListe.stream()
                 .filter(f -> f.getName().toLowerCase().contains(lowerCaseName))
                 .collect(Collectors.toList());
     }
 }
+
+    public List<Fahrrad> searchFahrradByHersteller(String hersteller) {
+        return fahrradListe.stream()
+            .filter(f -> f.getHersteller().equalsIgnoreCase(hersteller))
+            .collect(Collectors.toList());
+}
+
 
 }
