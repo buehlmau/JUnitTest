@@ -35,4 +35,11 @@ public class FahrradControllerTest {
         assertEquals(1, results.size());
 }
 
+    @Test
+    public void testSearchFahrradByNameCaseSensitiveNoMatch() {
+        List<Fahrrad> results = controller.searchFahrradByName("tReK", true);
+        assertEquals(0, results.size());
+}
+
+
 }
