@@ -25,8 +25,14 @@ public class FahrradControllerTest {
 
     @Test
     public void testSearchFahrradByNameCaseInsensitive() {
-    List<Fahrrad> results = controller.searchFahrradByName("tReK", false);
-    assertEquals(1, results.size());
+        List<Fahrrad> results = controller.searchFahrradByName("tReK", false);
+        assertEquals(1, results.size());
+}
+
+    @Test
+    public void testSearchFahrradByNameCaseSensitive() {
+        List<Fahrrad> results = controller.searchFahrradByName("Trek", true);
+        assertEquals(1, results.size());
 }
 
 }
