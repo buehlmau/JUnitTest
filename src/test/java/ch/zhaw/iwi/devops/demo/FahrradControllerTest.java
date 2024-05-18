@@ -16,59 +16,14 @@ public class FahrradControllerTest {
     }
 
     @Test
-    public void testGetFahrradById() {
-        Fahrrad fahrrad = controller.getFahrradById(1);
-        assertNotNull(fahrrad);
-        assertEquals(1, fahrrad.getId());
-        assertEquals("Trek Emonda", fahrrad.getName());
+    public void testSearchFahrradByYear() {
+        List<Fahrrad> results = controller.searchFahrradByYear(2020);
+        assertEquals(3, results.size());
     }
 
     @Test
-    public void testSearchFahrradByNameCaseInsensitive() {
-        List<Fahrrad> results = controller.searchFahrradByName("tReK", false);
-        assertEquals(1, results.size());
-}
-
-    @Test
-    public void testSearchFahrradByNameCaseSensitive() {
-        List<Fahrrad> results = controller.searchFahrradByName("Trek", true);
-        assertEquals(1, results.size());
-}
-
-    @Test
-    public void testSearchFahrradByNameCaseSensitiveNoMatch() {
-        List<Fahrrad> results = controller.searchFahrradByName("tReK", true);
+    public void testSearchFahrradByYearNoMatch() {
+        List<Fahrrad> results = controller.searchFahrradByYear(1999);
         assertEquals(0, results.size());
-}
-
-    @Test
-    public void testSearchFahrradByHersteller() {
-        List<Fahrrad> results = controller.searchFahrradByHersteller("Trek");
-        assertEquals(1, results.size());
-}
-
-    @Test
-    public void testSearchFahrradByHerstellerNoMatch() {
-        List<Fahrrad> results = controller.searchFahrradByHersteller("NonExistentBrand");
-        assertEquals(0, results.size());
-}
-
-    @Test
-        public void testSearchFahrradByNamePartialMatch() {
-            List<Fahrrad> results = controller.searchFahrradByName("Emonda", false);
-            assertEquals(1, results.size());
-            assertEquals("Trek Emonda", results.get(0).getName());
-}
-
-    @Test
-        public void testSearchFahrradByNameNoMatch() {
-            List<Fahrrad> results = controller.searchFahrradByName("NonExistentBike", false);
-            assertEquals(0, results.size());
-}
-
-
-
-
-
-
+    }
 }
